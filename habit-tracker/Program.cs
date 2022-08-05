@@ -94,11 +94,11 @@ namespace habit_tracker
                     $"SELECT * FROM drink_water";
 
                 List<DrinkWater> tableData = new();
-                SqliteDataReader reader = tableCmd.ExecuteReader();
+                SqliteDataReader reader = tableCmd.ExecuteReader(); // does CommandText command inside and returns data reader
 
-                if (reader.HasRows)
+                if (reader.HasRows) // checks rows in database
                 {
-                    while (reader.Read())
+                    while (reader.Read()) // displays data in database in desired format or fashion
                     {
                         tableData.Add(
                             new DrinkWater
