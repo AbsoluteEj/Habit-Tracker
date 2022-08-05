@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj": {}
+    "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj": {}
   },
   "projects": {
-    "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj": {
+    "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
         "projectName": "habit-tracker",
-        "projectPath": "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
+        "projectPath": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
