@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Microsoft.Data.Sqlite;
 
 namespace habit_tracker
@@ -59,9 +60,9 @@ namespace habit_tracker
                         Console.WriteLine("Thank you for using!");
                         isRunning = false;
                         break;
-                    // case "1":
-                    //     Retrieve();
-                    //     break;
+                    case "1":
+                        RetrieveView();
+                        break;
                     case "2":
                         Create();
                         break;
@@ -78,11 +79,56 @@ namespace habit_tracker
             }
         }
 
+        private static void RetrieveView()
+        {
+            Console.Clear();
+            Console.WriteLine("These are your previous records:\n");
+
+            // show record in database
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                var tableCmd = connection.CreateCommand();
+
+                tableCmd.CommandText =
+                    $"SELECT * FROM drink_water";
+
+                List<DrinkWater> tableData = new();
+                SqliteDataReader reader = tableCmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        tableData.Add(
+                            new DrinkWater
+                            {
+                                Id = reader.GetInt32(0),
+                                Date = DateTime.ParseExact(reader.GetString(1), "dd-MM-yy", new CultureInfo("en-US")),
+                                Quantity = reader.GetInt32(2)
+                            }); ;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+
+                connection.Close();
+
+                Console.WriteLine("----------------------------------------------------\n");
+                foreach (var dw in tableData)
+                {
+                    Console.WriteLine($"{dw.Id} - {dw.Date.ToString("dd-MMM-yyyy")} - Quantity: {dw.Quantity}");
+                }
+                Console.WriteLine("----------------------------------------------------\n");
+            }
+        }
 
         private static void Create()
         {
             string date = GetDateInput();
-            int quantity = GetNumberInput("Enter the quantity of glasses or your unit of measure in the day (no decimal allowed). Type B to return to main menu.\n");
+            int quantity = GetNumberInput("\nEnter the quantity of glasses or your unit of measure in the day (no decimal allowed). Type B to return to main menu.\n");
 
             // Put inputs in database
             using (var connection = new SqliteConnection(connectionString))
@@ -91,7 +137,7 @@ namespace habit_tracker
                 var tableCmd = connection.CreateCommand();
 
                 tableCmd.CommandText =
-                    $"INSERT INTO drink_water(date, quantity) VALUES ({date}, {quantity})";
+                    $"INSERT INTO drink_water(date, quantity) VALUES ('{date}', {quantity})";
 
                 tableCmd.ExecuteNonQuery();
 
@@ -101,7 +147,7 @@ namespace habit_tracker
 
         internal static string GetDateInput()
         {
-            Console.WriteLine("Please enter the date in this format: mm-dd-yyyy. Type 0 to return to main menu.\n");
+            Console.WriteLine("Please enter the date in this format: dd-mm-yy. Type 0 to return to main menu.\n");
 
             string dateInput = Console.ReadLine();
 
@@ -125,5 +171,12 @@ namespace habit_tracker
 
             return finalQuantity;
         }
+    }
+    // generated type -> class to use DrinkWater in List (RetrieveView method)
+    public class DrinkWater
+    {
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int Quantity { get; set; }
     }
 }
