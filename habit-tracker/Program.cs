@@ -73,12 +73,12 @@ namespace habit_tracker
                         Delete();
                         break;
                     default:
-                        Console.WriteLine("Invalid Input! Please only type from 0 - 4."); // can create new method when return back to main menu
+                        Console.WriteLine("Invalid Input! Please only type from 0 - 4."); // can create new method when return back to main menu edit (aug. 29, 22): implicitly implemented since isRunning condition is still true
                         break;
                 }
             }
         }
-        
+
         // View records Method
 
         private static void RetrieveView()
@@ -98,14 +98,14 @@ namespace habit_tracker
                 List<DrinkWater> tableData = new();
                 SqliteDataReader reader = tableCmd.ExecuteReader(); // does CommandText command inside and returns data reader
 
-                if (reader.HasRows) // checks rows in database
+                if (reader.HasRows) // checks rows in database, true if has rows
                 {
-                    while (reader.Read()) // displays data in database in desired format or fashion
+                    while (reader.Read()) // reads data each row, true if there are more rows
                     {
                         tableData.Add(
                             new DrinkWater
                             {
-                                Id = reader.GetInt32(0), 
+                                Id = reader.GetInt32(0),
                                 Date = DateTime.ParseExact(reader.GetString(1), "dd-MM-yy", new CultureInfo("en-US")),
                                 Quantity = reader.GetInt32(2)
                             }); ;
@@ -157,7 +157,7 @@ namespace habit_tracker
             RetrieveView();
 
             var recordId = GetNumberInput("Please enter the Id of the record you want to delete in the table. Type 0 to return to main\n");
-            
+
             // Delete record in database
             using (var connection = new SqliteConnection(connectionString))
             {
@@ -177,12 +177,12 @@ namespace habit_tracker
 
                 Console.WriteLine($"The selected Id: {rowCount} has been successfully deleted.\n\n");
             }
-            
+
         }
 
         private static void Update()
         {
-            
+
             RetrieveView(); // show table
 
             var recordId = GetNumberInput("Please enter the Id of the record you want to update in the table. Type 0 to return to main\n");
@@ -194,7 +194,7 @@ namespace habit_tracker
                 var checkCmd = connection.CreateCommand();
                 checkCmd.CommandText = $"SELECT EXISTS(SELECT 1 FROM water_record WHERE Id = {recordId})";
                 int checkQuery = Convert.ToInt32(checkCmd.ExecuteScalar());
-                
+
                 if (checkQuery == 0)
                 {
                     Console.WriteLine($"\n\nRecord with Id {recordId} doesn't exist. \n\n");
@@ -244,7 +244,7 @@ namespace habit_tracker
 
             if (quantityInput == "0") GetUserInput();
 
-            // Validation
+            // Validation of string to int conversion condition
             while (!Int32.TryParse(quantityInput, out _) || Convert.ToInt32(quantityInput) < 0)
             {
                 Console.WriteLine("\n\nInvalid number. Try again\n\n");
@@ -258,6 +258,7 @@ namespace habit_tracker
 
     }
     // generated type -> class to use DrinkWater in List (RetrieveView method)
+    // properties to set database as List<DrinkWater>
     public class DrinkWater
     {
         public int Id { get; set; }
