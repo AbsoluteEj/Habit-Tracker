@@ -21,10 +21,14 @@
           "SQLitePCLRaw.core": "2.0.6"
         },
         "compile": {
-          "lib/net6.0/Microsoft.Data.Sqlite.dll": {}
+          "lib/net6.0/Microsoft.Data.Sqlite.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.Data.Sqlite.dll": {}
+          "lib/net6.0/Microsoft.Data.Sqlite.dll": {
+            "related": ".xml"
+          }
         }
       },
       "SQLitePCLRaw.bundle_e_sqlite3/2.0.6": {
@@ -284,11 +288,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
       "projectName": "habit-tracker",
-      "projectPath": "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
+      "projectPath": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -328,7 +332,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -337,7 +342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -125,6 +125,20 @@ namespace habit_tracker
                 }
                 Console.WriteLine("----------------------------------------------------\n");
             }
+            Console.WriteLine("Type 0 to go back to main menu.");
+            string mainMenu = Console.ReadLine();
+            if (mainMenu == "0")
+            {
+                GetUserInput();
+            }
+            else
+            {
+                while (mainMenu != "0")
+                {
+                    Console.WriteLine("Invalid number.\n");
+                    GetNumberInput("Please type 0 to go back to main menu.");
+                }
+            }
         }
         // Create Method
 
