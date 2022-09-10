@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj": {}
+    "C:\\Users\\EJ\\VSCode repos new\\Habit-Tracker\\habit-tracker\\habit-tracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj": {
+    "C:\\Users\\EJ\\VSCode repos new\\Habit-Tracker\\habit-tracker\\habit-tracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
+        "projectUniqueName": "C:\\Users\\EJ\\VSCode repos new\\Habit-Tracker\\habit-tracker\\habit-tracker.csproj",
         "projectName": "habit-tracker",
-        "projectPath": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\habit-tracker.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\VSCode Repos\\habit-tracker-true\\habit-tracker\\obj\\",
+        "projectPath": "C:\\Users\\EJ\\VSCode repos new\\Habit-Tracker\\habit-tracker\\habit-tracker.csproj",
+        "packagesPath": "C:\\Users\\EJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EJ\\VSCode repos new\\Habit-Tracker\\habit-tracker\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
